@@ -41,6 +41,15 @@ class EmulatedRev2Board extends RaspberryPi {
         $this->registerDevice("spi0", new DummyDevice());
         $this->registerDevice("spi1", new DummyDevice());
         $this->registerDevice("i2c0", new DummyDevice());
+
+        // Enumerate serial ports
+    	$ports = array_merge(glob("/dev/ttyACM*"),glob("/dev/ttyUSB*"));
+        $n = 1;
+        foreach($ports as $port) {
+            $this->registerDevice("uart{$n}", new DummyDevice());
+            $this->registerAlias(basename(strtolower($port)), "uart{$n}");
+        }
+
         parent::__construct();
     }
 

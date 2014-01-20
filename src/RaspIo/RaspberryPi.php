@@ -15,8 +15,18 @@ abstract class RaspberryPi implements IteratorAggregate {
     private $devices = [];
     private $devicealias = [];
 
+    /**
+     * @brief Return the logical to physical pin map.
+     *
+     * @return array The pin map
+     */
     abstract public function getWiringMap();
     
+    /**
+     * @brief Return version/info on the current board.
+     *
+     * @return string The board type and revision
+     */
     abstract public function getVersion();
 
     /**
@@ -25,12 +35,15 @@ abstract class RaspberryPi implements IteratorAggregate {
      */
     protected function __construct() {
 
+        // register uart0 as uart
         if ((isset($this->uart0)) && (!isset($this->uart)))
             $this->registerAlias("uart","uart0");
 
+        // register spi0 as spi
         if ((isset($this->spi0)) && (!isset($this->spi)))
             $this->registerAlias("spi","spi0");
 
+        // register i2c0 as i2c
         if ((isset($this->i2c0)) && (!isset($this->i2c)))
             $this->registerAlias("i2c","i2c0");
     
