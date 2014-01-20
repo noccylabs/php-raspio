@@ -1,0 +1,17 @@
+{
+    "name": "noccylabs/raspio",
+    "description": "Raspberry Pi GPIO/Peripheral Library",
+    "license": "GPL-2.0+",
+    "autoload": {
+    	"psr-0": { "RaspIo\\": "src/" }
+   	},
+    "authors": [
+        {
+            "name": "Christopher Vagnetoft",
+            "email": "noccylabs@gmail.com"
+        }
+    ],
+    "require": {
+
+    }
+}
