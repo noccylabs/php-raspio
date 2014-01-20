@@ -30,18 +30,16 @@ that for subsequent calls to `getInstance()`.
 
 Devices are registered in the board driver constructor or in device drivers
 with a call to the `registerDevice($id,$device)` method. This makes them
-
-Devices can also be aliased, by calling `registerAlias($alias,$id)`. This is
-used to define the default devices when more than one of the device type may
-be available on the board.
-
-The devices are then available via their respective properties as well as the
-`getDevice()` method.
+available via their respective properties as well as the `getDevice()` method.
 
     // Like this
     $gpio = $pi->gpio;
     // Or this
     $gpio = $pi->getDevice("gpio");
+
+Devices can also be aliased, by calling `registerAlias($alias,$id)`. This is
+used to define the default devices when more than one of the device type may
+be available on the board.
 
 You can get the info on the board detected by calling `getVersion()`:
 
