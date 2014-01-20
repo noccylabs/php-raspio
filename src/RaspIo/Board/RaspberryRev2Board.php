@@ -16,16 +16,6 @@ class RaspberryRev2Board extends RaspberryPi {
 		31
 	];
 
-	private $gpio_to_wiring = [
-		null, null, 8, 9, null,
-		null, null, 11, 10, 13, 
-		12, 14, null, null, 15,
-		16, null, 0, 1, null, 
-		null, null, 3, 4, 5,
-		6, null, null, 17, 18,
-		19, 20
-	];
-
     public function __construct($cpuinfo) {
     
         if ($cpuinfo->hw_rev != "000d")
