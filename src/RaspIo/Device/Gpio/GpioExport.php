@@ -62,4 +62,17 @@ class GpioExport implements IGpioExport {
     
     }
 
+    public function setInterruptEdge($edge) {
+    
+        file_put_contents("/sys/class/gpio/gpio{$this->gpio_pin}/edge", $edge);
+        return $this;
+    
+    }
+    
+    public function getInterruptEdge() {
+    
+        return file_get_contents("/sys/class/gpio/gpio{$this->gpio_pin}/edge");
+    
+    }
+
 }

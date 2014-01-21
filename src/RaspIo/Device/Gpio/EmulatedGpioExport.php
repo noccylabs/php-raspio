@@ -43,5 +43,15 @@ class EmulatedGpioExport implements IGpioExport {
     
         return $this->value;
     
-    }    
+    }
+    
+    public function setInterruptEdge($edge) {
+    
+        fprintf(STDERR,"GPIO%d.edge = %s\n", $this->gpio_pin, $edge);
+        return $this;
+    
+    }
+    
+    public function getInterruptEdge() { }
+        
 }
