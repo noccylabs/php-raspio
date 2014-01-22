@@ -34,7 +34,7 @@ class EmulatedGpioExport implements IGpioExport {
     public function setValue($value) {
 
         fprintf(STDERR,"GPIO%d.value = %d\n", $this->gpio_pin, $value);
-        $this->value = $value;
+        $this->value = (int)$value;
         return $this;
     
     }

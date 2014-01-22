@@ -38,16 +38,8 @@ interface IGpioExport {
      */
     public function getValue();
 
-/*
-    public function hasInterruptCapabilities();
+    public function setInterruptEdge($value);
     
-    public function enableInterrupt($edge);
-    
-    public function disableInterrupt();
-    
-    public function waitForInterrupt();
-    
-    public function getInterruptFlag();
-*/
+    public function getInterruptEdge();
 
 }

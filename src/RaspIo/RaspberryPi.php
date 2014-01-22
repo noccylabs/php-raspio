@@ -124,10 +124,12 @@ abstract class RaspberryPi implements IteratorAggregate {
      * @return object A populated object having the keys hw_rev, serial and hardware.
      */
     public static function getCpuInfo() {
+    
 		$cpuinfo = explode("\n",file_get_contents("/proc/cpuinfo"));
 		$hw_rev = null;
 		$pi_serial = null;
 		$pi_hardware = null;
+	
 		foreach($cpuinfo as $line) {
 			if (strpos($line,":")!==false) {
 				list($k,$v) = explode(":",$line,2);
@@ -144,11 +146,13 @@ abstract class RaspberryPi implements IteratorAggregate {
 				}
 			}
 		}
+	
 		return (object)[
 		    "hw_rev" => $hw_rev,
 		    "serial" => $pi_serial,
 		    "hardware" => $pi_hardware
 		];
+    
     }
     
     /**
